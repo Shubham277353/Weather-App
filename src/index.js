@@ -1,1 +1,2 @@
-console.log("App running");
+import { apiLogic } from "./apiLogic";
+apiLogic("Delhi");
