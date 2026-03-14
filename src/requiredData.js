@@ -8,54 +8,23 @@ things to get :
     6. windspeed
     7. datetime
 */
+let daysData;
 
-export default function requiredData(data) {
-  const today = data.days[0];
-  const day1 = data.days[1];
-  const day2 = data.days[2];
-  const day3 = data.days[3];
+export function getData(data) {
+  daysData = data;
+}
 
-  // Today
-  const Today = {
-    condition: today.conditions,
-    temp: today.temp,
-    feelsLike: today.feelslike,
-    windspeed: today.windspeed,
-    humidity: today.humidity,
-    description: today.description,
-    datetime : today.datetime
+export function neededData(i) {
+  if (!daysData[i]) return;
+
+  const days = {
+    datetime: daysData[i].datetime,
+    condition: daysData[i].conditions,
+    temp: daysData[i].temp,
+    feelsLike: daysData[i].feelslike,
+    windspeed: daysData[i].windspeed,
+    humidity: daysData[i].humidity,
+    description: daysData[i].description,
   };
-  const Day1 = {
-    condition: day1.conditions,
-    temp: day1.temp,
-    feelsLike: day1.feelslike,
-    windspeed: day1.windspeed,
-    humidity: day1.humidity,
-    description: day1.description,
-    datetime : day1.datetime
-  };
-  const Day2 = {
-    condition: day2.conditions,
-    temp: day2.temp,
-    feelsLike: day2.feelslike,
-    windspeed: day2.windspeed,
-    humidity: day2.humidity,
-    description: day2.description,
-    datetime : day2.datetime
-  };
-  const Day3 = {
-    condition: day3.conditions,
-    temp: day3.temp,
-    feelsLike: day3.feelslike,
-    windspeed: day3.windspeed,
-    humidity: day3.humidity,
-    description: day3.description,
-    datetime : day3.datetime
-  };
-  
-  console.log(Today);
-  console.log(Day1);
-  console.log(Day2);
-  console.log(Day3);
-  
+  return days;
 }
