@@ -1,11 +1,6 @@
 import "./style.css";
-import { apiLogic } from "./apiLogic";
 import searchDOM from "./searchDOM";
-import { neededData } from "./requiredData";
+import displayData from "./displayData";
 
-apiLogic();
 searchDOM();
-
-setTimeout(()=>{
-    neededData();
-},1000);
+displayData();

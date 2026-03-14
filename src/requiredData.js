@@ -11,27 +11,27 @@ things to get :
 let daysData;
 const newDaysArray = [];
 
-export function getData(data) {
+export function fetchedData(data) {
   daysData = data;
+  neededData();
 }
 
-export function neededData() {
+ function neededData() {
   for (let i = 0; i <= 3; i++) {
     if (!daysData[i]) continue;
 
     const day = {
       datetime: daysData[i].datetime,
-      condition: daysData[i].conditions,
       temp: daysData[i].temp,
-      feelsLike: daysData[i].feelslike,
-      windspeed: daysData[i].windspeed,
+      rainPercentage: daysData[i].preciprob,
       humidity: daysData[i].humidity,
       description: daysData[i].description,
     };
     newDaysArray.push(day);
-    console.log(newDaysArray);
   }
+  console.log(newDaysArray);
 }
+
 
 export function getArray(){
   return newDaysArray ;
