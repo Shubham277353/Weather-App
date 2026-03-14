@@ -9,22 +9,30 @@ things to get :
     7. datetime
 */
 let daysData;
+const newDaysArray = [];
 
 export function getData(data) {
   daysData = data;
 }
 
-export function neededData(i) {
-  if (!daysData[i]) return;
+export function neededData() {
+  for (let i = 0; i <= 3; i++) {
+    if (!daysData[i]) continue;
 
-  const days = {
-    datetime: daysData[i].datetime,
-    condition: daysData[i].conditions,
-    temp: daysData[i].temp,
-    feelsLike: daysData[i].feelslike,
-    windspeed: daysData[i].windspeed,
-    humidity: daysData[i].humidity,
-    description: daysData[i].description,
-  };
-  return days;
+    const day = {
+      datetime: daysData[i].datetime,
+      condition: daysData[i].conditions,
+      temp: daysData[i].temp,
+      feelsLike: daysData[i].feelslike,
+      windspeed: daysData[i].windspeed,
+      humidity: daysData[i].humidity,
+      description: daysData[i].description,
+    };
+    newDaysArray.push(day);
+    console.log(newDaysArray);
+  }
+}
+
+export function getArray(){
+  return newDaysArray ;
 }
