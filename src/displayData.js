@@ -9,9 +9,14 @@ export default function displayData(dataArray) {
   console.log(location);
   const h1 = document.createElement("h1");
   h1.textContent = `Forecast For: ${location}`;
-  container.append(h1);
+  
+  const cardContainer = document.createElement("div");
+  cardContainer.id = "container";
+  
+  container.append(h1, cardContainer);
 
   dataArray.forEach((day) => {
+
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card-div");
 
@@ -31,6 +36,7 @@ export default function displayData(dataArray) {
     conditions.textContent = `${day.description}`;
 
     cardDiv.append(date, temperature, humidity, rainPercentage, conditions);
-    container.append(cardDiv);
+    cardContainer.append(cardDiv);
+    container.append(h1, cardContainer);
   });
 }
