@@ -1,19 +1,19 @@
 import displayData from "./displayData";
 
-let daysData;
+let processedData;
 const newDaysArray = [];
 
 export function fetchedData(data) {
-  daysData = data;
-  neededData();
+  processedData = data;
+  neededData(processedData);
 }
 
 function addDays(day){
-  if(!newDaysArray.length === 0) newDaysArray.length = 0 ;
+  if(newDaysArray.length === 3) newDaysArray.length = 0 ;
   newDaysArray.push(day);
 }
 
- function neededData() {
+ function neededData(daysData) {
   for (let i = 0; i <= 2; i++) {
     if (!daysData[i]) continue;
 
@@ -23,6 +23,7 @@ function addDays(day){
       rainPercentage: daysData[i].precipprob,
       humidity: daysData[i].humidity,
       description: daysData[i].description,
+      icon: daysData[i].icon
     };
     addDays(day);
   }

@@ -1,6 +1,7 @@
 const container = document.getElementById("cards-container");
 
 export default function displayData(dataArray) {
+  container.innerHTML = "";
   dataArray.forEach((day) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card-div");
