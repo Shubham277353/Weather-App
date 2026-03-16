@@ -11,3 +11,12 @@ button{
 svg{
     cursor: pointer;
 }
+
+.cards-container{
+    display: flex;
+    margin: 10px;
+    border: 2px solid black;
+    background-color: cyan;
+    font-family: 'Times New Roman', Times, serif;
+
+}

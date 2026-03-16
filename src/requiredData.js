@@ -1,13 +1,5 @@
-/* 
-things to get : 
-    1. conditions
-    2. humidity
-    3. temp
-    4. description
-    5. feelslike
-    6. windspeed
-    7. datetime
-*/
+import displayData from "./displayData";
+
 let daysData;
 const newDaysArray = [];
 
@@ -16,23 +8,27 @@ export function fetchedData(data) {
   neededData();
 }
 
+function addDays(day){
+  if(!newDaysArray.length === 0) newDaysArray.length = 0 ;
+  newDaysArray.push(day);
+}
+
  function neededData() {
-  for (let i = 0; i <= 3; i++) {
+  for (let i = 0; i <= 2; i++) {
     if (!daysData[i]) continue;
 
     const day = {
       datetime: daysData[i].datetime,
       temp: daysData[i].temp,
-      rainPercentage: daysData[i].preciprob,
+      rainPercentage: daysData[i].precipprob,
       humidity: daysData[i].humidity,
       description: daysData[i].description,
     };
-    newDaysArray.push(day);
+    addDays(day);
   }
   console.log(newDaysArray);
+  displayData(newDaysArray);
 }
 
 
-export function getArray(){
-  return newDaysArray ;
-}
+

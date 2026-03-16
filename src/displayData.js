@@ -1,34 +1,25 @@
-import { getArray } from "./requiredData";
-
 const container = document.getElementById("cards-container");
 
-const dataArray = getArray();
-
-export default function displayData() {
+export default function displayData(dataArray) {
   dataArray.forEach((day) => {
     const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card-div");
     const date = document.createElement("p");
     date.textContent = `${day.datetime}`;
 
     const temperature = document.createElement("p");
-    temp.textContent = `Temperature : ${day.temp}`;
+    temperature.textContent = `Temperature : ${day.temp}`;
 
     const humidity = document.createElement("p");
-    temp.textContent = `Humidity : ${day.humidity}`;
+    humidity.textContent = `Humidity : ${day.humidity}`;
 
     const rainPercentage = document.createElement("p");
-    temp.textContent = `Temperature : ${day.rainPercentage}`;
+    rainPercentage.textContent = `Rain : ${day.rainPercentage}`;
 
     const conditions = document.createElement("p");
-    temp.textContent = `${day.conditions}`;
+    conditions.textContent = `${day.description}`;
 
-    cardDiv.append(
-      date,
-      temperature,
-      humidity,
-      rainPercentage,
-      conditions,
-    );
+    cardDiv.append(date, temperature, humidity, rainPercentage, conditions);
     container.append(cardDiv);
   });
 }
