@@ -1,19 +1,18 @@
 import displayData from "./displayData";
 
-let processedData;
 const newDaysArray = [];
 
 export function fetchedData(data) {
-  processedData = data;
+  const processedData = data.days;
   neededData(processedData);
 }
 
-function addDays(day){
-  if(newDaysArray.length === 3) newDaysArray.length = 0 ;
+function addDays(day) {
+  if (newDaysArray.length === 3) newDaysArray.length = 0;
   newDaysArray.push(day);
 }
 
- function neededData(daysData) {
+function neededData(daysData, address) {
   for (let i = 0; i <= 2; i++) {
     if (!daysData[i]) continue;
 
@@ -23,13 +22,10 @@ function addDays(day){
       rainPercentage: daysData[i].precipprob,
       humidity: daysData[i].humidity,
       description: daysData[i].description,
-      icon: daysData[i].icon
+      icon: daysData[i].icon,
     };
     addDays(day);
   }
   console.log(newDaysArray);
   displayData(newDaysArray);
 }
-
-
-

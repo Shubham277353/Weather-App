@@ -1,10 +1,20 @@
+import { getAddress } from "./address";
+
 const container = document.getElementById("cards-container");
 
 export default function displayData(dataArray) {
   container.innerHTML = "";
+
+  const location = getAddress();
+  console.log(location);
+  const h1 = document.createElement("h1");
+  h1.textContent = `Forecast For: ${location}`;
+  container.append(h1);
+
   dataArray.forEach((day) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card-div");
+
     const date = document.createElement("p");
     date.textContent = `${day.datetime}`;
 
