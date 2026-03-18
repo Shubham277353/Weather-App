@@ -1,78 +1,125 @@
 *,
 *::after,
-*::before{
-    padding: 0;
-    margin: 0;
-    font-size: 16px;
+*::before {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
 }
 
-body{
-    background-color: cadetblue;
+body {
+  background-image: url(./icons/weatherBG.jpg);
+  background-size: cover;
 }
 
-#main-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(170, 227, 227);
-    padding: 12px;
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 12px;
 }
 
 #search-input {
-    font-size: 18px;
-    padding: 4px;
-    border-radius: 8px;
-    border:  none;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 8px;
+  border: none;
 }
 
-form{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-button{
-    border: none;
-    background-color: white;
-    padding: 4px;
-    border-radius: 8px;
-    cursor: pointer;
+button {
+  border: none;
+  background-color: white;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-
-h1{
-    font-size: 32px;
-    text-align: center;
-    margin: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-bottom: 20px;
+h1 {
+  font-size: 32px;
+  text-align: center;
+  margin: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-#cards-container{
-    display: flex;
-    margin: 10px;
-    font-family: 'Times New Roman', Times, serif;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
+#cards-container {
+  display: flex;
+  margin: 10px;
+  font-family: "Times New Roman", Times, serif;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
 }
 
-#container{
-    display: flex;
+#container {
+  display: flex;
 }
 
-.card-div{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    gap: 12px;
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+.card-div {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 12px;
+  padding: 16px;
+  margin: 10px;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(10px);
+  color: #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-#forecast-heading{
-    color: #2f4f4f;
+#forecast-heading {
+  color: #5181c4;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#weather-image {
+  height: 100px;
+  width: 100px;
+}
+
+.image-data-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.conditions {
+  text-align: center;
+}
+
+.date {
+  margin-left: 30px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #38bdf8;
+}
+
+.data-container {
+  color: #cbd5f5;
+}
+.temp {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.info {
+  font-size: 18px;
+  color: #94a3b8;
+}
+
+.description {
+  font-size: 18px;
+  color: #a2aebe;
 }

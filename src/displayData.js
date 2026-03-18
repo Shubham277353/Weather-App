@@ -15,21 +15,21 @@ import thunder from "./icons/thunder.svg";
 import thunderRain from "./icons/thunder-rain.svg";
 
 const iconMap = {
-  rain : rain ,
-  "clear-day" : clearDay,
-  "clear-night" : clearNight,
-  cloudy : cloudy,
-  "partly-cloudy-day" : partlyCloudyDay,
-  "partly-cloudy-night" : partlyCloudyNight,
-  snow : snow,
-  fog : fog,
-  wind : wind,
-  hail : hail,
-  "showers-day" : showersDay,
-  "showers-night" : showersNight,
-  thunder : thunder,
-  "thunder-rain" : thunderRain
-}
+  rain: rain,
+  "clear-day": clearDay,
+  "clear-night": clearNight,
+  cloudy: cloudy,
+  "partly-cloudy-day": partlyCloudyDay,
+  "partly-cloudy-night": partlyCloudyNight,
+  snow: snow,
+  fog: fog,
+  wind: wind,
+  hail: hail,
+  "showers-day": showersDay,
+  "showers-night": showersNight,
+  thunder: thunder,
+  "thunder-rain": thunderRain,
+};
 
 const container = document.getElementById("cards-container");
 
@@ -41,38 +41,51 @@ export default function displayData(dataArray) {
   const h1 = document.createElement("h1");
   h1.textContent = `Forecast For: ${location}`;
   h1.id = "forecast-heading";
-  
+
   const cardContainer = document.createElement("div");
   cardContainer.id = "container";
-  
+
   container.append(h1, cardContainer);
 
   dataArray.forEach((day) => {
-
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card-div");
 
     const date = document.createElement("p");
     date.textContent = `${day.datetime}`;
+    date.classList.add("date");
+
+    const imageDataContainer = document.createElement("div");
+    imageDataContainer.classList.add("image-data-container");
 
     const image = document.createElement("img");
     const iconName = day.icon;
     image.src = iconMap[iconName];
     image.alt = "weather condition image";
+    image.id = "weather-image";
+
+    const dataContainer = document.createElement("data-container");
+    dataContainer.classList.add("data-container");
 
     const temperature = document.createElement("p");
     temperature.textContent = `Temperature : ${day.temp}`;
-
+    temperature.classList.add("temp");
+    
     const humidity = document.createElement("p");
     humidity.textContent = `Humidity : ${day.humidity}`;
-
+    humidity.classList.add("info");
+    
     const rainPercentage = document.createElement("p");
-    rainPercentage.textContent = `Rain : ${day.rainPercentage}`;
-
+    rainPercentage.textContent = `Rain : ${day.rainPercentage}%`;
+    rainPercentage.classList.add("info");
+    
     const conditions = document.createElement("p");
     conditions.textContent = `${day.description}`;
+    conditions.classList.add("description");
 
-    cardDiv.append(date, image, temperature, humidity, rainPercentage, conditions);
+    dataContainer.append(temperature, humidity, rainPercentage);
+    imageDataContainer.append(image, dataContainer);
+    cardDiv.append(date, imageDataContainer, conditions);
     cardContainer.append(cardDiv);
     container.append(h1, cardContainer);
   });
