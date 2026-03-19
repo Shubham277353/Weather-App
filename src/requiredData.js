@@ -1,3 +1,4 @@
+import conversion from "./conversion";
 import displayData from "./displayData";
 
 const newDaysArray = [];
@@ -27,5 +28,5 @@ function neededData(daysData, address) {
     addDays(day);
   }
   console.log(newDaysArray);
-  displayData(newDaysArray);
+  conversion(newDaysArray);
 }

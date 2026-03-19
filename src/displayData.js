@@ -39,7 +39,7 @@ export default function displayData(dataArray) {
   const location = getAddress();
   console.log(location);
   const h1 = document.createElement("h1");
-  h1.textContent = `Forecast For: ${location}`;
+  h1.innerHTML = `Forecast For: <span>${location},</span>`;
   h1.id = "forecast-heading";
 
   const cardContainer = document.createElement("div");

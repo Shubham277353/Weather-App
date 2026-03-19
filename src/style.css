@@ -9,34 +9,46 @@
 body {
   background-image: url(./icons/weatherBG.jpg);
   background-size: cover;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 #main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1e293b;
+  background-color: rgba(30, 41, 59, 0.9);
+  backdrop-filter: blur(8px);
   color: #e2e8f0;
-  padding: 12px;
+  padding: 18px;
+  gap: 12px;
 }
 
 #search-input {
-  font-size: 18px;
-  padding: 4px;
+  font-size: 16px;
+  padding: 8px 12px;
   border-radius: 8px;
   border: none;
+  outline: none;
+  background: transparent;
+  color: white;
 }
 
 form {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 12px;
 }
 
 button {
+  background: #38bdf8;
   border: none;
-  background-color: white;
-  padding: 4px;
+  padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -57,18 +69,24 @@ h1 {
   gap: 10px;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  justify-content: center;
 }
 
 #container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .card-div {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  padding: 20px;
   gap: 12px;
-  padding: 16px;
   margin: 10px;
   background: rgba(30, 41, 59, 0.85);
   backdrop-filter: blur(10px);
@@ -78,9 +96,17 @@ h1 {
 }
 
 #forecast-heading {
-  color: #5181c4;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2e7ce3;
+  text-align: center;
+  margin: 30px 0;
+}
+
+#forecast-heading span {
+  color: #0796d3;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 #weather-image {
@@ -91,7 +117,7 @@ h1 {
 .image-data-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: 16px;
 }
 
 .conditions {
@@ -99,7 +125,8 @@ h1 {
 }
 
 .date {
-  margin-left: 30px;
+  text-align: center;
+  margin: 0;
   font-weight: 600;
   font-size: 20px;
   color: #38bdf8;
