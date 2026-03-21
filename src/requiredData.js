@@ -13,7 +13,7 @@ function addDays(day) {
   newDaysArray.push(day);
 }
 
-function neededData(daysData, address) {
+function neededData(daysData) {
   for (let i = 0; i <= 2; i++) {
     if (!daysData[i]) continue;
 

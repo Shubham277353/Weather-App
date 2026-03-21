@@ -1,7 +1,10 @@
-const btnsContainer = document.querySelectorAll("btns");
-const f = document.getElementById("f");
-const c = document.getElementById("c");
+const convertBtn = document.getElementById("convert-btn");
 
-btnsContainer.addEventListner("click",(e)=>{
-    const clicked = e.ta.closest("button");
-})
+let isFahrenheit = true;
+
+export default function convertDegree() {
+  convertBtn.addEventListener("click", () => {
+    isFahrenheit = !isFahrenheit;
+    console.log(isFahrenheit ? "F" : "C");
+  });
+}
