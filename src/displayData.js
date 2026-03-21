@@ -42,7 +42,7 @@ export function setDegree(value){
 }
 
 
-const container = document.getElementById("cards-container");
+const container = document.getElementById("main-cards-container");
 
 export default function displayData() {
   const dataArray = getArray();
@@ -55,7 +55,7 @@ export default function displayData() {
   h1.id = "forecast-heading";
 
   const cardContainer = document.createElement("div");
-  cardContainer.id = "container";
+  cardContainer.id = "cards-grid";
 
   container.append(h1, cardContainer);
 
@@ -68,7 +68,7 @@ export default function displayData() {
     date.classList.add("date");
 
     const imageDataContainer = document.createElement("div");
-    imageDataContainer.classList.add("image-data-container");
+    imageDataContainer.classList.add("image-and-data-container");
 
     const image = document.createElement("img");
     const iconName = day.icon;
@@ -89,12 +89,12 @@ export default function displayData() {
     temperature.classList.add("temp");
     
     const humidity = document.createElement("p");
-    humidity.textContent = `Humidity : ${day.humidity}`;
-    humidity.classList.add("info");
+    humidity.textContent = `Humidity : ${Math.round(day.humidity)}%`;
+    humidity.classList.add("humidity");
     
     const rainPercentage = document.createElement("p");
     rainPercentage.textContent = `Rain : ${day.rainPercentage}%`;
-    rainPercentage.classList.add("info");
+    rainPercentage.classList.add("rain");
     
     const conditions = document.createElement("p");
     conditions.textContent = `${day.description}`;

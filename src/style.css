@@ -3,7 +3,6 @@
 *::before {
   padding: 0;
   margin: 0;
-  font-size: 16px;
 }
 
 body {
@@ -51,21 +50,29 @@ button {
   padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  font-weight: 600;
 }
 
 h1 {
   font-size: 32px;
   text-align: center;
   margin: 10px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-#cards-container {
+#main-cards-container {
   display: flex;
   margin: 10px;
-  font-family: "Times New Roman", Times, serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   gap: 10px;
   flex-direction: column;
   align-items: center;
@@ -73,7 +80,7 @@ h1 {
   justify-content: center;
 }
 
-#container {
+#cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 50px;
@@ -93,6 +100,14 @@ h1 {
   color: #e2e8f0;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card-div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 #forecast-heading {
@@ -114,10 +129,11 @@ h1 {
   width: 100px;
 }
 
-.image-data-container {
+.image-and-data-container {
   display: flex;
   align-items: center;
   gap: 16px;
+  align-items: flex-start;
 }
 
 .conditions {
@@ -136,12 +152,17 @@ h1 {
   color: #cbd5f5;
 }
 .temp {
-  font-size: 20px;
-  font-weight: 600;
-  color: #e2e8f0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-.info {
+.humidity {
+  font-size: 18px;
+  color: #94a3b8;
+}
+
+.rain {
   font-size: 18px;
   color: #94a3b8;
 }
@@ -149,4 +170,20 @@ h1 {
 .description {
   font-size: 18px;
   color: #a2aebe;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid black;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
