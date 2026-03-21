@@ -1,4 +1,6 @@
 import { getAddress } from "./address";
+import { getArray } from "./requiredData";
+
 import rain from "./icons/rain.svg";
 import clearDay from "./icons/clear-day.svg";
 import clearNight from "./icons/clear-night.svg";
@@ -31,9 +33,19 @@ const iconMap = {
   "thunder-rain": thunderRain,
 };
 
+let isFahrenheit = true;
+
+export function setDegree(value){
+  isFahrenheit = value;
+  console.log(isFahrenheit);
+  displayData();
+}
+
+
 const container = document.getElementById("cards-container");
 
-export default function displayData(dataArray) {
+export default function displayData() {
+  const dataArray = getArray();
   container.innerHTML = "";
 
   const location = getAddress();
@@ -68,7 +80,12 @@ export default function displayData(dataArray) {
     dataContainer.classList.add("data-container");
 
     const temperature = document.createElement("p");
-    temperature.textContent = `Temperature : ${day.temp}`;
+    if(isFahrenheit){
+      temperature.textContent = `Temperature : ${Math.round(day.temp)}F`;
+    }else{
+      let C = Math.round(day.temp);
+      temperature.textContent = `Temperature : ${Math.round((C - 32)* 5/9)}C`;
+    }
     temperature.classList.add("temp");
     
     const humidity = document.createElement("p");

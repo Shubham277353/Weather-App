@@ -1,7 +1,6 @@
 import "./style.css";
 import searchDOM from "./searchDOM";
-import displayData from "./displayData";
-import conversion from "./conversion";
+import { convertDegree } from "./conversion";
 
 searchDOM();
-conversion();
+convertDegree()

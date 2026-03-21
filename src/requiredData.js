@@ -1,4 +1,4 @@
-import conversion from "./conversion";
+import convertDegree from "./conversion";
 import displayData from "./displayData";
 
 const newDaysArray = [];
@@ -11,6 +11,10 @@ export function fetchedData(data) {
 function addDays(day) {
   if (newDaysArray.length === 3) newDaysArray.length = 0;
   newDaysArray.push(day);
+}
+
+export function getArray(){
+  return newDaysArray;
 }
 
 function neededData(daysData) {
@@ -28,5 +32,5 @@ function neededData(daysData) {
     addDays(day);
   }
   console.log(newDaysArray);
-  conversion(newDaysArray);
+  displayData(newDaysArray);
 }
