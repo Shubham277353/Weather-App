@@ -45,6 +45,9 @@ export function setDegree(value){
 const container = document.getElementById("main-cards-container");
 
 export default function displayData() {
+  const loader = document.getElementById("loader");
+  loader.style.display = "none";
+  
   const dataArray = getArray();
   container.innerHTML = "";
 

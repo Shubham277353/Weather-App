@@ -3,6 +3,7 @@ import { apiLogic } from "./apiLogic";
 const searchBtn = document.getElementById("search-box");
 const searchInput = document.getElementById("search-input");
 const form = document.querySelector("form");
+const loader = document.getElementById("loader");
 
 export default function searchBtnDom() {
 
@@ -11,5 +12,6 @@ export default function searchBtnDom() {
         const city = searchInput.value;
         if(!city) return;
         apiLogic(city);
+        loader.style.display = "block";
     })
 }
